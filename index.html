@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Hero Background</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Tajawal',sans-serif;}
+.hero-badge,.hero h1,.hero p{font-family:'Tajawal',sans-serif;}
+
+/* ── Animated gradient background ── */
+@keyframes gradientShift{
+  0%  {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  background:linear-gradient(-45deg,#0d2b1a,#164430,#1F5E3B,#2a6e47,#1a4a2e,#3a5e35);
+  background-size:400% 400%;
+  animation:gradientShift 10s ease infinite;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:60px 24px 80px;
+}
+
+/* ── Grid pattern ── */
+.hero-pattern{
+  position:absolute;inset:0;opacity:.06;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.6) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.6) 40px);
+}
+
+/* ── Floating circles ── */
+.hero-geo{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.hero-circle{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(216,195,165,0.18);
+}
+
+@keyframes floatA{
+  0%,100%{transform:translateY(0px) scale(1);}
+  50%     {transform:translateY(-18px) scale(1.03);}
+}
+@keyframes floatB{
+  0%,100%{transform:translateY(0px) scale(1);}
+  50%     {transform:translateY(14px) scale(.97);}
+}
+@keyframes floatC{
+  0%,100%{transform:translateY(0px);}
+  50%     {transform:translateY(-10px);}
+}
+
+.c1{animation:floatA 8s ease-in-out infinite;}
+.c2{animation:floatB 11s ease-in-out infinite;}
+.c3{animation:floatC 7s ease-in-out infinite;}
+
+/* ── Badge ── */
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(216,195,165,0.12);
+  border:1px solid rgba(216,195,165,0.3);
+  color:#D8C3A5;border-radius:20px;
+  padding:6px 18px;font-size:12px;
+  letter-spacing:1.2px;margin-bottom:24px;
+  animation:fadeUp .9s ease both;
+}
+
+/* ── Title ── */
+.hero h1{
+  font-size:clamp(26px,4.5vw,52px);
+  font-weight:800;color:#fff;
+  line-height:1.3;margin-bottom:16px;
+  text-shadow:0 2px 24px rgba(0,0,0,.35);white-space:nowrap;
+  animation:fadeUp 1s .15s ease both;
+}
+.hero h1 span{color:#D8C3A5;}
+
+/* ── Description ── */
+.hero p{
+  font-size:clamp(14px,1.8vw,18px);
+  color:rgba(255,255,255,.75);
+  max-width:620px;margin:0 auto;
+  font-weight:300;line-height:1.85;
+  animation:fadeUp 1s .3s ease both;
+}
+
+/* ── How we started badge ── */
+.how-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:36px;
+  background:rgba(216,195,165,0.10);
+  border:1px solid rgba(216,195,165,0.35);
+  color:#D8C3A5;
+  border-radius:32px;
+  padding:10px 28px;
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:background .3s,border-color .3s,transform .2s;
+  animation:fadeUp 1s .45s ease both;
+}
+.how-badge:hover{
+  background:rgba(216,195,165,0.22);
+  border-color:rgba(216,195,165,0.6);
+  transform:translateY(-2px);
+}
+.how-icon{
+  font-size:13px;
+  opacity:.7;
+}
+
+/* ── Fade-up animation ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px);}
+  to  {opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+
+  <div class="hero-pattern"></div>
+
+  <div class="hero-geo">
+    <div class="hero-circle c1" style="width:600px;height:600px;top:-200px;right:-150px;"></div>
+    <div class="hero-circle c2" style="width:400px;height:400px;bottom:-100px;left:-100px;"></div>
+    <div class="hero-circle c3" style="width:200px;height:200px;bottom:60px;right:20%;"></div>
+  </div>
+
+  <div style="position:relative;z-index:2;max-width:800px;">
+    <div class="hero-badge">Saudi Arabia 2030</div>
+    <h1>تنمية <span>محافظات منطقة المدينة المنورة</span></h1>
+    <p>منصة متكاملة لدعم التخطيط والرصد والمشاركة المجتمعية  لتجمعات منطقة المدينة المنورة نحو تنمية مستدامة</p>
+    <div class="how-badge">
+      <span class="how-icon">◈</span>
+      كيف بدأنا
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
